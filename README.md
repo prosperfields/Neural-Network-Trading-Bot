@@ -4,12 +4,12 @@ __Resources used__: Nameko, Numpy, Oanda API, MongoDB, Keras (with Tensorflow ba
 
 This is a currency (or other instrument) trading bot using Nameko microservices. It can be used quite easily, with the 
 exception of a possible compatability bet
-en Python 3.7 and Nameko. 
+on Python 3.7 and Nameko. 
 
 
 # DATA.PY # 
 
-The Oanda API is the first step. It provides the connection to get instrument price. It has a 5000 call limit, which can be make training the neural network tedious. An authentification is required to connect, and after that the API quite simple to use. I used MongoDB as a database to store candle information. We begin with the "Data" class. A nameko @timer decorator is used with the first function **get_ohlc**. This function returns the current hour candle. It has to return two candles because the current 1 hour candle will be incomplete, and we want the last completed candle. I also check to see if there any doubles just in case so that it would not train on the same candlestick if the nameko service was running and set to train on new candlesticks. 
+The Oanda API is the first step. It provides the connection to get instrument prices. It has a 5000 call limit, which can be make training the neural network tedious. An authentification is required to connect, and after that the API is quite simple to use. We used MongoDB as a database to store candle information. We begin with the "Data" class. A nameko @timer decorator is used with the first function **get_ohlc**. This function returns the current hour candle. It has to return two candles because the current 1 hour candle will be incomplete, and we want the last completed candle. I also check to see if there any doubles just in case so that it would not train on the same candlestick if the nameko service was running and set to train on new candlesticks. 
 
 The second function, **get_historical_data**, is nearly identical to the get_ohlc function except that it currently is being used as a call to train the neural network in the next file. It also fetches candlesticks, however, it grabs the past 5000 candles. A neural network won't be useful with 5000 data points. 5000 one hour candles is 208.33 days. The to and from parameters in instruments.InsturmentCandles can specify dates to call candles from Oanda. get_historical_data also saves the candles to MongoDB. Although I currently bypass MongoDB (next file), if the bot were to be used for real trades, it would be advisable to save all the candles to MongoDB and then use the database to train the neural network.
 
