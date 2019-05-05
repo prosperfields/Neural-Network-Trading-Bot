@@ -28,7 +28,7 @@ the sigmoid function did not work. This was a surprise because the sigmoid funct
 Instead, we worked with two SoftMax layers instead. We reduced the hidden layer nodes to 16 as the standard 64 is too many considering we only pull
 in the limit of 5000 candles. 
 
-The **process** function processes both the candles and sets up for the output. It delivers the prediction based on a list of three numbers. The first number 
+The **process** function processes both the candles and sets up for the output. It delivers the prediction based on a list of three numbers.
 The first number tells the percentage of a gain, it's really used to tell the chance that there will be no gain (price will stay the same). 
 The second output states the percentage chance the neural network believes the price will increase. The third is the chance it wil decrease.
 
