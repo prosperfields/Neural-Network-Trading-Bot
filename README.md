@@ -32,11 +32,15 @@ The **process** function processes both the candles and sets up for the output. 
 The first number tells the percentage of a gain, it's really used to tell the chance that there will be no gain (price will stay the same). 
 The second output states the percentage chance the neural network believes the price will increase. The third is the chance it wil decrease.
 
+![](neural_network_trainer.png)
+
 # TRADER.PY # 
 
 class Trader brings in the data from MongoDB. It processes the data again, the same exact way it was processed earlier. It then loads the model, which is an interesting 
 part of the project. The  model, as mentioned earlier, was saved and then called (hardcoded) and used to predict! The  numbers below 
 shows the output!
+
+![](neural_network_trader.png)
 
 # FUTURE # 
 
