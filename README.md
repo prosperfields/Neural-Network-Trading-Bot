@@ -50,4 +50,4 @@ signal that the price will definitely drop. We planned to visualize the data, ho
 
 # OBSTACLES # 
 
-We was unable to find much documentation on the GreenSSL Socket issue we were having when using the nameko service, so we instead created another Anaconda environment with Python 3.6 where I had to redownload all the necessary packages. That seem to be a quick work around.w
+We were unable to find much documentation on the GreenSSL Socket issue we were having when using the nameko service, so we instead created another Anaconda environment with Python 3.6 where I had to redownload all the necessary packages. That seem to be a quick work around.
